@@ -1,0 +1,29 @@
+html {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  border: 1px solid #0000ff;
+  /* justify-content: space-around; */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+button {
+  margin: 5%;
+}
+
+.games {
+  border: 1px solid green;
+
+}
+.screen {
+  border: 2px solid orange;
+  margin: 10px;
+  padding: 10px;
+}
