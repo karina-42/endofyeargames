@@ -37,7 +37,7 @@ function showNazo() {
 
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
-  title.textContent = "Don/'t Match"
+  title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
   dontMatchBtnTimesClicked === 5 ? dontMatchBtn.disabled = true : dontMatchBtnTimesClicked
 }
