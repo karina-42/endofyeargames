@@ -41,3 +41,35 @@ button {
 img {
   width: 100%;
 }
+
+
+
+#one {
+  border: 2px black solid;
+  background: rgb(246, 89, 89);
+  margin: 10%;
+}
+
+#two {
+  border: 2px black solid;
+  background: rgb(208, 73, 95);
+  margin: 10%;
+}
+
+#three {
+  border: 2px black solid;
+  background: rgb(133, 49, 49);
+  margin: 10%;
+}
+
+#four {
+  border: 2px black solid;
+  background: rgb(155, 74, 74);
+  margin: 10%;
+}
+
+#five {
+  border: 2px black solid;
+  background: rgb(122, 67, 67);
+  margin: 10%;
+}
