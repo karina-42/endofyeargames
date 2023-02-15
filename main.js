@@ -3,15 +3,26 @@ const nazoBtn = document.getElementById('nazo')
 const dontMatchBtn = document.getElementById('dontMatch')
 const wordPlusWordBtn = document.getElementById('wordPlusWord')
 const top5Btn = document.getElementById('top5')
+const pointsBtn = document.getElementById('pointsBtn')
 
 newWordsBtn.addEventListener('click', showWords)
 nazoBtn.addEventListener('click' , showNazo)
 dontMatchBtn.addEventListener('click', showDontMatch)
 wordPlusWordBtn.addEventListener('click', showWordPlusWord)
-top5Btn.addEventListener('click', showTop5)
+// top5Btn.addEventListener('click', showTop5)
+pointsBtn.addEventListener('click', showPoints)
+
 
 const title = document.getElementById('title')
 const problem = document.getElementById('problem')
+const points = document.getElementById('points')
+
+function showPoints() {
+  let randomPoints = Math.floor(Math.random() * 10 +1) * 10 
+  points.textContent = randomPoints
+
+}
+
 
 let newWordsBtnTimesClicked = 0
 let nazoBtnTimesClicked = 0
@@ -35,6 +46,7 @@ let wordImagesArray = [
 
 function showWords() {
   newWordsBtnTimesClicked += 1
+  points.textContent = 'Get these points!'
   title.textContent = 'Make New Words'
   problem.textContent = wordsArray[newWordsBtnTimesClicked - 1] 
   if (newWordsBtnTimesClicked === 5) {
@@ -84,17 +96,24 @@ function showWordPlusWord() {
 
 let one = document.getElementById('one')
 one.addEventListener('click', show)
+let two = document.getElementById('two')
+two.addEventListener('click', show)
+let three = document.getElementById('three')
+three.addEventListener('click', show)
+// let one = document.getElementById('one')
+// one.addEventListener('click', show)
+// let one = document.getElementById('one')
+// one.addEventListener('click', show)
 
   function show() {
-    console.log('click');
+    one.textContent = 'dogs'
   }
-function showTop5() {
-  top5BtnTimesClicked += 1
-  title.textContent = "Top 5"
-  problem.textContent = dontMatchArray[top5BtnTimesClicked - 1]
-  top5BtnTimesClicked === 5 ? top5Btn.disabled = true : top5BtnTimesClicked
 
-  
-  
-  
-}
+// function showTop5() {
+//   top5BtnTimesClicked += 1
+//   title.textContent = "Top 5"
+//   problem.textContent = dontMatchArray[top5BtnTimesClicked - 1]
+//   top5BtnTimesClicked === 5 ? top5Btn.disabled = true : top5BtnTimesClicked
+
+
+// }
