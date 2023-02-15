@@ -56,6 +56,7 @@ function showWords() {
 
 function showNazo() {
   nazoBtnTimesClicked += 1
+  points.textContent = 'Get these points!'
   title.textContent = "Nazo Nazo"
   problem.textContent = nazoArray[nazoBtnTimesClicked - 1]
   nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
@@ -63,6 +64,7 @@ function showNazo() {
 
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
+  points.textContent = 'Get these points!'
   title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
   dontMatchBtnTimesClicked === 5 ? dontMatchBtn.disabled = true : dontMatchBtnTimesClicked
@@ -70,7 +72,9 @@ function showDontMatch() {
 
 function showWordPlusWord() {
   wordPlusWordBtnTimesClicked += 1
+  points.textContent = 'Get these points!'
   title.textContent = "word + word = newWord"
+  problem.textContent = 'Solve this problem!'
 
   let img = document.createElement('img')
   img.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].src
@@ -94,12 +98,12 @@ function showWordPlusWord() {
   }
 }
 
-let one = document.getElementById('one')
-one.addEventListener('click', show)
-let two = document.getElementById('two')
-two.addEventListener('click', show)
-let three = document.getElementById('three')
-three.addEventListener('click', show)
+// let one = document.getElementById('one')
+// one.addEventListener('click', show)
+// let two = document.getElementById('two')
+// two.addEventListener('click', show)
+// let three = document.getElementById('three')
+// three.addEventListener('click', show)
 // let one = document.getElementById('one')
 // one.addEventListener('click', show)
 // let one = document.getElementById('one')
