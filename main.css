@@ -5,10 +5,13 @@ html {
 
 #header-title {
   font-size: 5.5rem;
+  color: #b97375;
+  text-shadow: gray 2px 1px 2px;
 }
 
 #title {
   font-size: 3.8rem;
+  text-shadow: silver 1px 1px 2px;
 }
 
 #problem {
@@ -19,21 +22,15 @@ html {
   font-size: 4.5rem;
 }
 
-.side-btn {
-
-}
-
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: #f1e4e8;
-  border: 2px solid pink;
 }
 
 main {
   display: flex;
-  /* border: 1px solid blue; */
   max-width: 100%;
   max-height: 100vh;
   margin: auto;
@@ -43,14 +40,25 @@ main {
   display: flex;
   flex-direction: column;
   justify-content:space-around;
-  border: 1px solid red;
+  border: 5px solid #e2dcde;
+  /* border-right: none; */
   background-color: #ceb1be;
 }
 
 .side-btn {
   border: none;
   font-size: 2.5rem;
-  margin: 5%;
+  /* margin: 5%; */
+  color: rgb(35, 34, 34);
+  padding: .4em;
+  border-radius: 8px;
+  box-shadow: 0 9px #999;
+}
+
+.side-btn:active {
+  background-color: #b97375;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 /* button {
