@@ -48,13 +48,35 @@ let wordImagesArray = [
 ]
 
 let top5Array = [
-
+  {
+    theme: 'Pets',
+    array: [
+      'butterfly',
+      'snek',
+      'bird',
+      'cat',
+      'dog'
+    ]
+  },
+  {
+    theme: 'Snacks',
+    array: [
+      'chips',
+      'choco',
+      'gummies',
+      'nuts',
+      'cookies'
+    ]
+  }
 ]
 
 //functions to show the games on click of their buttons
 //make new words game
 function showWords() {
   newWordsBtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').textContent = ''
+  }
   points.textContent = 'Get these points!'
   title.textContent = 'Make New Words'
   problem.textContent = wordsArray[newWordsBtnTimesClicked - 1] 
@@ -66,6 +88,9 @@ function showWords() {
 //nazo nazo riddle game
 function showNazo() {
   nazoBtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').textContent = ''
+  }
   points.textContent = 'Get these points!'
   title.textContent = "Nazo Nazo"
   problem.textContent = nazoArray[nazoBtnTimesClicked - 1]
@@ -75,6 +100,9 @@ function showNazo() {
 //don't match your answers game
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').textContent = ''
+  }
   points.textContent = 'Get these points!'
   title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
@@ -84,6 +112,9 @@ function showDontMatch() {
 //word + word = word
 function showWordPlusWord() {
   wordPlusWordBtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').textContent = ''
+  }
   points.textContent = 'Get these points!'
   title.textContent = "word + word = newWord"
   problem.textContent = 'Solve this problem!'
@@ -112,7 +143,53 @@ function showWordPlusWord() {
 
 //top 5 game
 function showTop5() {
+  top5BtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').textContent = ''
+  }
+  points.textContent = 'Get these points!'
+  title.textContent = 'Top 5'
+  problem.textContent = top5Array[top5BtnTimesClicked - 1].theme
+
+  let ol = document.createElement('ol')
+  ol.setAttribute('id', 'ol')
+  for(let i =5; i>=1; i--) {
+    let li = document.createElement('li')
+    li.textContent = `${i} points`
+    if(i === 1) {
+      li.textContent = `${i} point`
+    }
+    li.setAttribute('id', `position${i}`)
+    // li.className = 
+    ol.append(li)
+  }
+  problem.after(ol)
   
+  let position1 = document.getElementById('position1')
+  position1.addEventListener('click', change1)
+  function change1() {
+    position1.textContent = top5Array[top5BtnTimesClicked - 1].array[0]
+  }
+  let position2 = document.getElementById('position2')
+  position2.addEventListener('click', change2)
+  function change2() {
+    position2.textContent = top5Array[top5BtnTimesClicked - 1].array[1]
+  }
+  let position3 = document.getElementById('position3')
+  position3.addEventListener('click', change3)
+  function change3() {
+    position3.textContent = top5Array[top5BtnTimesClicked - 1].array[2]
+  }
+  let position4 = document.getElementById('position4')
+  position4.addEventListener('click', change4)
+  function change4() {
+    position4.textContent = top5Array[top5BtnTimesClicked - 1].array[3]
+  }
+  let position5 = document.getElementById('position5')
+  position5.addEventListener('click', change5)
+  function change5() {
+    position5.textContent = top5Array[top5BtnTimesClicked - 1].array[4]
+  }
 }
 
 
