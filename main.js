@@ -1,3 +1,4 @@
+//get buttons from HTML
 const newWordsBtn = document.getElementById('newWords')
 const nazoBtn = document.getElementById('nazo')
 const dontMatchBtn = document.getElementById('dontMatch')
@@ -5,31 +6,33 @@ const wordPlusWordBtn = document.getElementById('wordPlusWord')
 const top5Btn = document.getElementById('top5')
 const pointsBtn = document.getElementById('pointsBtn')
 
+//add on click event listeners to buttons
 newWordsBtn.addEventListener('click', showWords)
 nazoBtn.addEventListener('click' , showNazo)
 dontMatchBtn.addEventListener('click', showDontMatch)
 wordPlusWordBtn.addEventListener('click', showWordPlusWord)
-// top5Btn.addEventListener('click', showTop5)
+top5Btn.addEventListener('click', showTop5)
 pointsBtn.addEventListener('click', showPoints)
 
-
+//get title, problem and points element from document to change later
 const title = document.getElementById('title')
 const problem = document.getElementById('problem')
 const points = document.getElementById('points')
 
+//function to show points on click of points button
 function showPoints() {
-  let randomPoints = Math.floor(Math.random() * 10 +1) * 10 
+  let randomPoints = Math.floor(Math.random() * 10 + 1) * 10 
   points.textContent = randomPoints
-
 }
 
-
+//initialize count of button presses
 let newWordsBtnTimesClicked = 0
 let nazoBtnTimesClicked = 0
 let dontMatchBtnTimesClicked = 0
 let wordPlusWordBtnTimesClicked = 0
 let top5BtnTimesClicked = 0
 
+//arrays needed for each game
 let wordsArray = ['pam param', 'second word', 'third word', 'fourth word', 'fifth word']
 
 let nazoArray = ['nazo1', 'nazo2', 'nazo3', 'nazo4', 'nazo5']
@@ -44,6 +47,12 @@ let wordImagesArray = [
   }
 ]
 
+let top5Array = [
+
+]
+
+//functions to show the games on click of their buttons
+//make new words game
 function showWords() {
   newWordsBtnTimesClicked += 1
   points.textContent = 'Get these points!'
@@ -54,6 +63,7 @@ function showWords() {
   }
 }
 
+//nazo nazo riddle game
 function showNazo() {
   nazoBtnTimesClicked += 1
   points.textContent = 'Get these points!'
@@ -62,6 +72,7 @@ function showNazo() {
   nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
 }
 
+//don't match your answers game
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
   points.textContent = 'Get these points!'
@@ -70,6 +81,7 @@ function showDontMatch() {
   dontMatchBtnTimesClicked === 5 ? dontMatchBtn.disabled = true : dontMatchBtnTimesClicked
 }
 
+//word + word = word
 function showWordPlusWord() {
   wordPlusWordBtnTimesClicked += 1
   points.textContent = 'Get these points!'
@@ -97,6 +109,12 @@ function showWordPlusWord() {
     problem.appendChild(ansImg)
   }
 }
+
+//top 5 game
+function showTop5() {
+  
+}
+
 
 // let one = document.getElementById('one')
 // one.addEventListener('click', show)
