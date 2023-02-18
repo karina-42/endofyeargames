@@ -78,6 +78,7 @@ function showWords() {
     document.getElementById('ol').textContent = ''
   }
   points.textContent = 'Get these points!'
+  pointsBtn.style.visibility = 'visible'
   title.textContent = 'Make New Words'
   problem.textContent = wordsArray[newWordsBtnTimesClicked - 1] 
   if (newWordsBtnTimesClicked === 5) {
@@ -92,6 +93,7 @@ function showNazo() {
     document.getElementById('ol').textContent = ''
   }
   points.textContent = 'Get these points!'
+  pointsBtn.style.visibility = 'visible'
   title.textContent = "Nazo Nazo"
   problem.textContent = nazoArray[nazoBtnTimesClicked - 1]
   nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
@@ -104,6 +106,7 @@ function showDontMatch() {
     document.getElementById('ol').textContent = ''
   }
   points.textContent = 'Get these points!'
+  pointsBtn.style.visibility = 'visible'
   title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
   dontMatchBtnTimesClicked === 5 ? dontMatchBtn.disabled = true : dontMatchBtnTimesClicked
@@ -116,6 +119,7 @@ function showWordPlusWord() {
     document.getElementById('ol').textContent = ''
   }
   points.textContent = 'Get these points!'
+  pointsBtn.style.visibility = 'visible'
   title.textContent = "word + word = newWord"
   problem.textContent = 'Solve this problem!'
 
@@ -147,7 +151,8 @@ function showTop5() {
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
   }
-  points.textContent = 'Get these points!'
+  points.textContent = ''
+  pointsBtn.style.visibility = 'hidden'
   title.textContent = 'Top 5'
   problem.textContent = top5Array[top5BtnTimesClicked - 1].theme
 
@@ -160,7 +165,7 @@ function showTop5() {
       li.textContent = `${i} point`
     }
     li.setAttribute('id', `position${i}`)
-    // li.className = 
+    li.className = 'top5listItems' 
     ol.append(li)
   }
   problem.after(ol)
@@ -169,50 +174,30 @@ function showTop5() {
   position1.addEventListener('click', change1)
   function change1() {
     position1.textContent = top5Array[top5BtnTimesClicked - 1].array[0]
+    position1.style.backgroundColor = '#7E9012'
   }
   let position2 = document.getElementById('position2')
   position2.addEventListener('click', change2)
   function change2() {
     position2.textContent = top5Array[top5BtnTimesClicked - 1].array[1]
+    position2.style.backgroundColor = '#60881D'
   }
   let position3 = document.getElementById('position3')
   position3.addEventListener('click', change3)
   function change3() {
     position3.textContent = top5Array[top5BtnTimesClicked - 1].array[2]
+    position3.style.backgroundColor = '#438028'
   }
   let position4 = document.getElementById('position4')
   position4.addEventListener('click', change4)
   function change4() {
     position4.textContent = top5Array[top5BtnTimesClicked - 1].array[3]
+    position4.style.backgroundColor = '#257832'
   }
   let position5 = document.getElementById('position5')
   position5.addEventListener('click', change5)
   function change5() {
     position5.textContent = top5Array[top5BtnTimesClicked - 1].array[4]
+    position5.style.backgroundColor = '#07703D'
   }
 }
-
-
-// let one = document.getElementById('one')
-// one.addEventListener('click', show)
-// let two = document.getElementById('two')
-// two.addEventListener('click', show)
-// let three = document.getElementById('three')
-// three.addEventListener('click', show)
-// let one = document.getElementById('one')
-// one.addEventListener('click', show)
-// let one = document.getElementById('one')
-// one.addEventListener('click', show)
-
-  function show() {
-    one.textContent = 'dogs'
-  }
-
-// function showTop5() {
-//   top5BtnTimesClicked += 1
-//   title.textContent = "Top 5"
-//   problem.textContent = dontMatchArray[top5BtnTimesClicked - 1]
-//   top5BtnTimesClicked === 5 ? top5Btn.disabled = true : top5BtnTimesClicked
-
-
-// }
