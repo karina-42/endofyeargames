@@ -38,9 +38,26 @@ let wordPlusWordBtnTimesClicked = 0
 let top5BtnTimesClicked = 0
 
 //arrays needed for each game
-let newWordsArray = ['pam param', 'second word', 'third word', 'fourth word', 'fifth word']
+let newWordsArray = ['supercalifragilisticexpialidocious', 'one hundred percent', 'exceptional students', 'impossible fiction', 'see you later']
 
-let nazoArray = ['nazo1', 'nazo2', 'nazo3', 'nazo4', 'nazo5']
+let nazoArray = [
+  {
+    nazo: 'How many letters are in the alphabet?',
+    answer: '11 - t h e a l p h a b e t'
+  },
+  {
+    nazo: 'What can you see once in a minute, twice in a moment and never in one thousand years?',
+    answer: 'The letter "m"'
+  },
+  {
+    nazo: 'A woman and 9 friends are under ONE umbrella. But nobody gets wet. Why?',
+    answer: 'Because it isn\’t raining.'
+  },
+  {
+    nazo: 'Which letter of the alphabet has the most water?',
+    answer: 'The letter "C"'
+  }
+  ]
 
 let dontMatchArray = ['Who is an actor that is beautiful?', 'What is an animal that is cute?', 'Who is a singer that is cool?', 'What is an interesting movie to watch?', 'Who is a teacher that is funny?']
 
@@ -105,7 +122,10 @@ function showNewWords() {
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
   }
-  points.textContent = 'Get these points!'
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
+  }
+  points.textContent = 'Get these points x each word!'
   pointsBtn.style.visibility = 'visible'
   newWordsSpan.textContent = newWordsBtnTimesClicked 
 
@@ -125,12 +145,28 @@ function showNazo() {
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
   }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
+  }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
   nazonazoSpan.textContent = nazoBtnTimesClicked
 
   title.textContent = "Nazo Nazo"
-  problem.textContent = nazoArray[nazoBtnTimesClicked - 1]
+  problem.textContent = nazoArray[nazoBtnTimesClicked - 1].nazo
+
+  let ansBtn = document.createElement('button')
+  ansBtn.className = 'ansBtn'
+  ansBtn.innerText = "Answer"
+  problem.after(ansBtn)
+  ansBtn.onclick = function() {
+    let answer = document.createElement('p')
+    answer.className = 'newWordAnswer'
+    answer.textContent = nazoArray[nazoBtnTimesClicked - 1].answer
+    ansBtn.before(answer)
+    ansBtn.remove()
+  }
+
   nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
 }
 
@@ -142,6 +178,9 @@ function showDontMatch() {
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
+  }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
   }
   points.textContent = 'Get these points! (half if you matched 🙀)'
   pointsBtn.style.visibility = 'visible'
@@ -160,6 +199,9 @@ function showWordPlusWord() {
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
   }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
+  }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
   wordPlusSpan.textContent = wordPlusWordBtnTimesClicked
@@ -176,7 +218,8 @@ function showWordPlusWord() {
   wordPlusWordContent.append(img)
 
   let ansBtn = document.createElement('button')
-  ansBtn.setAttribute('id', 'wordPlusAnswBtn')
+  ansBtn.className = 'ansBtn'
+  // ansBtn.setAttribute('id', 'wordPlusAnswBtn')
   ansBtn.innerText = "Answer"
   wordPlusWordContent.append(ansBtn)
   ansBtn.onclick = function() {
@@ -201,6 +244,9 @@ function showTop5() {
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
+  }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
   }
   points.textContent = ''
   pointsBtn.style.visibility = 'hidden'
