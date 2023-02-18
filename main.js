@@ -42,13 +42,33 @@ let newWordsArray = ['pam param', 'second word', 'third word', 'fourth word', 'f
 
 let nazoArray = ['nazo1', 'nazo2', 'nazo3', 'nazo4', 'nazo5']
 
-let dontMatchArray = ['dontMatch1', 'dontMatch2', 'dontMatch3', 'dontMatch4', 'dontMatch5']
+let dontMatchArray = ['Who is an actor that is beautiful?', 'What is an animal that is cute?', 'Who is a singer that is cool?', 'What is an interesting movie to watch?', 'Who is a teacher that is funny?']
 
 let wordImagesArray = [
+  {
+    src: 'imgs/firefighter.png',
+    answerImg: 'imgs/andrew-gaines-s76S64umXpo-unsplash.jpg',
+    answer: 'firefighter'
+  },
   {
     src: 'imgs/keyboard.png',
     answerImg: 'imgs/stefen-tan-KYw1eUx1J7Y-unsplash.jpg',
     answer: 'keyboard'
+  },
+  {
+    src: 'imgs/watermelon.png',
+    answerImg: 'imgs/mockup-graphics-HuMXepbutF8-unsplash.jpg',
+    answer: 'watermelon'
+  },
+  {
+    src: 'imgs/hamburger.png',
+    answerImg: 'imgs/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg',
+    answer: 'hamburger'
+  },
+  {
+    src: 'imgs/cupcake.png',
+    answerImg: 'imgs/sara-cervera-zEwgRzJJIvk-unsplash.jpg',
+    answer: 'cupcake'
   }
 ]
 
@@ -82,6 +102,9 @@ function showNewWords() {
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
   }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
   newWordsSpan.textContent = newWordsBtnTimesClicked 
@@ -99,6 +122,9 @@ function showNazo() {
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
   }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
   nazonazoSpan.textContent = nazoBtnTimesClicked
@@ -114,7 +140,10 @@ function showDontMatch() {
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
   }
-  points.textContent = 'Get these points!'
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
+  points.textContent = 'Get these points! (half if you matched 🙀)'
   pointsBtn.style.visibility = 'visible'
   dontMatchSpan.textContent = dontMatchBtnTimesClicked 
   title.textContent = "Don't Match"
@@ -128,32 +157,40 @@ function showWordPlusWord() {
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
   }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
   wordPlusSpan.textContent = wordPlusWordBtnTimesClicked
   title.textContent = "word + word = newWord"
   problem.textContent = 'Solve this problem!'
 
+  let wordPlusWordContent = document.createElement('section')
+  wordPlusWordContent.setAttribute('id', "wordPlusWordContent")
+  problem.after(wordPlusWordContent)
+
   let img = document.createElement('img')
+  img.setAttribute('id', 'problemImg')
   img.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].src
-
-  problem.appendChild(img)
-
-  wordPlusWordBtnTimesClicked === 5 ? wordPlusWordBtn.disabled = true : wordPlusWordBtnTimesClicked
-
-  console.log(wordPlusWordBtnTimesClicked);
+  wordPlusWordContent.append(img)
 
   let ansBtn = document.createElement('button')
-  ansBtn.innerHTML = "Answer"
-  problem.appendChild(ansBtn)
+  ansBtn.setAttribute('id', 'wordPlusAnswBtn')
+  ansBtn.innerText = "Answer"
+  wordPlusWordContent.append(ansBtn)
   ansBtn.onclick = function() {
     let answer = document.createElement('p')
+    answer.className = 'newWordAnswer'
     answer.textContent = wordImagesArray[wordPlusWordBtnTimesClicked - 1].answer
-    problem.appendChild(answer)
+    ansBtn.before(answer)
     let ansImg = document.createElement('img')
     ansImg.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].answerImg
-    problem.appendChild(ansImg)
+    answer.after(ansImg)
+    ansBtn.style.visibility = 'hidden'
   }
+
+  wordPlusWordBtnTimesClicked === 5 ? wordPlusWordBtn.disabled = true : wordPlusWordBtnTimesClicked
 }
 
 //top 5 game
@@ -161,6 +198,9 @@ function showTop5() {
   top5BtnTimesClicked += 1
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
+  }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
   }
   points.textContent = ''
   pointsBtn.style.visibility = 'hidden'
