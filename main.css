@@ -16,6 +16,7 @@ html {
 
 #problem {
   font-size: 5.5rem;
+  margin-bottom: 0%;
 }
 
 #points {
@@ -61,6 +62,19 @@ main {
   transform: translateY(4px);
 }
 
+.side-btn:disabled {
+  box-shadow: none;
+  color: #666;
+  transform: none;
+  background-color: #d8c4cd;
+}
+
+span {
+  font-size: 2rem;
+  border: 2px solid #ba85ac;
+  float: right;
+}
+
 #pointsBtn {
   margin: 4%;
   font-size: 2.5rem;
@@ -77,7 +91,6 @@ main {
 }
 
 .games {
-  border: 1px solid green;
   height: 100%;
   width: 100%;
 }
@@ -95,6 +108,7 @@ img {
 
 #ol {
   display: inline-block;
+  margin-bottom: 0;
 }
 
 .top5listItems {

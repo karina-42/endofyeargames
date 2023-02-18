@@ -7,17 +7,22 @@ const top5Btn = document.getElementById('top5')
 const pointsBtn = document.getElementById('pointsBtn')
 
 //add on click event listeners to buttons
-newWordsBtn.addEventListener('click', showWords)
+newWordsBtn.addEventListener('click', showNewWords)
 nazoBtn.addEventListener('click' , showNazo)
 dontMatchBtn.addEventListener('click', showDontMatch)
 wordPlusWordBtn.addEventListener('click', showWordPlusWord)
 top5Btn.addEventListener('click', showTop5)
 pointsBtn.addEventListener('click', showPoints)
 
-//get title, problem and points element from document to change later
+//get title, problem, span and points element from document to change later
 const title = document.getElementById('title')
 const problem = document.getElementById('problem')
 const points = document.getElementById('points')
+const newWordsSpan = document.getElementById('newWordsSpan')
+const nazonazoSpan = document.getElementById('nazonazoSpan')
+const top5Span = document.getElementById('top5Span')
+const wordPlusSpan = document.getElementById('wordPlusSpan')
+const dontMatchSpan = document.getElementById('dontMatchSpan')
 
 //function to show points on click of points button
 function showPoints() {
@@ -33,7 +38,7 @@ let wordPlusWordBtnTimesClicked = 0
 let top5BtnTimesClicked = 0
 
 //arrays needed for each game
-let wordsArray = ['pam param', 'second word', 'third word', 'fourth word', 'fifth word']
+let newWordsArray = ['pam param', 'second word', 'third word', 'fourth word', 'fifth word']
 
 let nazoArray = ['nazo1', 'nazo2', 'nazo3', 'nazo4', 'nazo5']
 
@@ -72,15 +77,17 @@ let top5Array = [
 
 //functions to show the games on click of their buttons
 //make new words game
-function showWords() {
+function showNewWords() {
   newWordsBtnTimesClicked += 1
   if (document.getElementById('ol')) {
     document.getElementById('ol').textContent = ''
   }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
+  newWordsSpan.textContent = newWordsBtnTimesClicked 
+
   title.textContent = 'Make New Words'
-  problem.textContent = wordsArray[newWordsBtnTimesClicked - 1] 
+  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1] 
   if (newWordsBtnTimesClicked === 5) {
     newWordsBtn.disabled = true
   }
@@ -94,6 +101,8 @@ function showNazo() {
   }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
+  nazonazoSpan.textContent = nazoBtnTimesClicked
+
   title.textContent = "Nazo Nazo"
   problem.textContent = nazoArray[nazoBtnTimesClicked - 1]
   nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
@@ -107,6 +116,7 @@ function showDontMatch() {
   }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
+  dontMatchSpan.textContent = dontMatchBtnTimesClicked 
   title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
   dontMatchBtnTimesClicked === 5 ? dontMatchBtn.disabled = true : dontMatchBtnTimesClicked
@@ -120,6 +130,7 @@ function showWordPlusWord() {
   }
   points.textContent = 'Get these points!'
   pointsBtn.style.visibility = 'visible'
+  wordPlusSpan.textContent = wordPlusWordBtnTimesClicked
   title.textContent = "word + word = newWord"
   problem.textContent = 'Solve this problem!'
 
@@ -153,6 +164,7 @@ function showTop5() {
   }
   points.textContent = ''
   pointsBtn.style.visibility = 'hidden'
+  top5Span.textContent = top5BtnTimesClicked
   title.textContent = 'Top 5'
   problem.textContent = top5Array[top5BtnTimesClicked - 1].theme
 
