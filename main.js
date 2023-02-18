@@ -117,7 +117,7 @@ let top5Array = [
 function showNewWords() {
   newWordsBtnTimesClicked += 1
   if (document.getElementById('ol')) {
-    document.getElementById('ol').textContent = ''
+    document.getElementById('ol').remove()
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
@@ -126,7 +126,7 @@ function showNewWords() {
     document.querySelector('.newWordAnswer').remove()
   }
   points.textContent = 'Get these points x each word!'
-  pointsBtn.style.visibility = 'visible'
+  pointsBtn.style.display = 'inline-block'
   newWordsSpan.textContent = newWordsBtnTimesClicked 
 
   title.textContent = 'Make New Words'
@@ -140,7 +140,7 @@ function showNewWords() {
 function showNazo() {
   nazoBtnTimesClicked += 1
   if (document.getElementById('ol')) {
-    document.getElementById('ol').textContent = ''
+    document.getElementById('ol').remove()
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
@@ -149,7 +149,7 @@ function showNazo() {
     document.querySelector('.newWordAnswer').remove()
   }
   points.textContent = 'Get these points!'
-  pointsBtn.style.visibility = 'visible'
+  pointsBtn.style.display = 'inline-block'
   nazonazoSpan.textContent = nazoBtnTimesClicked
 
   title.textContent = "Nazo Nazo"
@@ -174,7 +174,7 @@ function showNazo() {
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
   if (document.getElementById('ol')) {
-    document.getElementById('ol').textContent = ''
+    document.getElementById('ol').remove()
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
@@ -183,7 +183,7 @@ function showDontMatch() {
     document.querySelector('.newWordAnswer').remove()
   }
   points.textContent = 'Get these points! (half if you matched 🙀)'
-  pointsBtn.style.visibility = 'visible'
+  pointsBtn.style.display = 'inline-block'
   dontMatchSpan.textContent = dontMatchBtnTimesClicked 
   title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
@@ -194,7 +194,7 @@ function showDontMatch() {
 function showWordPlusWord() {
   wordPlusWordBtnTimesClicked += 1
   if (document.getElementById('ol')) {
-    document.getElementById('ol').textContent = ''
+    document.getElementById('ol').remove()
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
@@ -202,8 +202,10 @@ function showWordPlusWord() {
   if (document.querySelector('.newWordAnswer')) {
     document.querySelector('.newWordAnswer').remove()
   }
+
   points.textContent = 'Get these points!'
-  pointsBtn.style.visibility = 'visible'
+  
+  pointsBtn.style.display = 'inline-block'
   wordPlusSpan.textContent = wordPlusWordBtnTimesClicked
   title.textContent = "word + word = newWord"
   problem.textContent = 'Solve this problem!'
@@ -219,7 +221,6 @@ function showWordPlusWord() {
 
   let ansBtn = document.createElement('button')
   ansBtn.className = 'ansBtn'
-  // ansBtn.setAttribute('id', 'wordPlusAnswBtn')
   ansBtn.innerText = "Answer"
   wordPlusWordContent.append(ansBtn)
   ansBtn.onclick = function() {
@@ -230,7 +231,9 @@ function showWordPlusWord() {
     let ansImg = document.createElement('img')
     ansImg.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].answerImg
     answer.after(ansImg)
-    ansBtn.style.visibility = 'hidden'
+    // ansBtn.style.visibility = 'hidden'
+    ansBtn.remove()
+
   }
 
   wordPlusWordBtnTimesClicked === 5 ? wordPlusWordBtn.disabled = true : wordPlusWordBtnTimesClicked
@@ -240,7 +243,7 @@ function showWordPlusWord() {
 function showTop5() {
   top5BtnTimesClicked += 1
   if (document.getElementById('ol')) {
-    document.getElementById('ol').textContent = ''
+    document.getElementById('ol').remove()
   }
   if (document.getElementById('wordPlusWordContent')) {
     document.getElementById('wordPlusWordContent').remove()
@@ -249,7 +252,8 @@ function showTop5() {
     document.querySelector('.newWordAnswer').remove()
   }
   points.textContent = ''
-  pointsBtn.style.visibility = 'hidden'
+
+  pointsBtn.style.display = 'none'
   top5Span.textContent = top5BtnTimesClicked
   title.textContent = 'Top 5'
   problem.textContent = top5Array[top5BtnTimesClicked - 1].theme
