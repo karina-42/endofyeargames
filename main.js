@@ -47,7 +47,7 @@ let nazoArray = [
   },
   {
     nazo: 'What can you see once in a minute, twice in a moment and never in one thousand years?',
-    answer: 'The letter "m"'
+    answer: 'The letter "m".'
   },
   {
     nazo: 'A woman and 9 friends are under ONE umbrella. But nobody gets wet. Why?',
@@ -55,7 +55,11 @@ let nazoArray = [
   },
   {
     nazo: 'Which letter of the alphabet has the most water?',
-    answer: 'The letter "C"'
+    answer: 'The letter "C".'
+  },
+  {
+    nazo: 'What thing do you need to break before you can use it?',
+    answer: 'An egg.'
   }
   ]
 
@@ -91,23 +95,53 @@ let wordImagesArray = [
 
 let top5Array = [
   {
-    theme: 'Pets',
+    theme: 'Top 5 Pets',
     array: [
-      'butterfly',
-      'snek',
-      'bird',
-      'cat',
-      'dog'
+      'snakes',
+      'hamsters',
+      'chickens',
+      'dogs',
+      'cats'
     ]
   },
   {
-    theme: 'Snacks',
+    theme: 'Top 5 Snacks',
     array: [
-      'chips',
-      'choco',
-      'gummies',
+      'cookies',
       'nuts',
-      'cookies'
+      'ice cream',
+      'potato chips',
+      'chocolate'
+    ]
+  },
+  {
+    theme: 'Top 5 Sports (exercise)',
+    array: [
+      'soccer',
+      'basketball',
+      'yoga',
+      'dancing',
+      'weight lifting'
+    ]
+  },
+  {
+    theme: 'Top 5 Soft Drinks',
+    array: [
+      'water',
+      'hot chocolate',
+      'herbal tea',
+      'coffee',
+      'ginger ale'
+    ]
+  },
+  {
+    theme: 'Top 5 Fruits',
+    array: [
+      'grapes',
+      'plum',
+      'pineapple',
+      'mikan',
+      'mango'
     ]
   }
 ]
@@ -255,17 +289,14 @@ function showTop5() {
 
   pointsBtn.style.display = 'none'
   top5Span.textContent = top5BtnTimesClicked
-  title.textContent = 'Top 5'
+  title.textContent = 'Angie\'s Top 5s'
   problem.textContent = top5Array[top5BtnTimesClicked - 1].theme
 
   let ol = document.createElement('ol')
   ol.setAttribute('id', 'ol')
   for(let i =5; i>=1; i--) {
     let li = document.createElement('li')
-    li.textContent = `${i} points`
-    if(i === 1) {
-      li.textContent = `${i} point`
-    }
+    li.textContent = `${i}0 points`
     li.setAttribute('id', `position${i}`)
     li.className = 'top5listItems' 
     ol.append(li)
@@ -302,4 +333,5 @@ function showTop5() {
     position5.textContent = top5Array[top5BtnTimesClicked - 1].array[4]
     position5.style.backgroundColor = '#07703D'
   }
+  top5BtnTimesClicked === 5 ? top5Btn.disabled = true : top5BtnTimesClicked
 }
