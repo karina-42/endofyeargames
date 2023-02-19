@@ -55,7 +55,7 @@ let nazoArray = [
   },
   {
     nazo: 'Which letter of the alphabet has the most water?',
-    answer: 'The letter "C".'
+    answer: 'The letter "C" (sea).'
   },
   {
     nazo: 'What thing do you need to break before you can use it?',
