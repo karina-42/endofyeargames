@@ -67,7 +67,7 @@ let dontMatchArray = ['Who is an actor that is beautiful?', 'What is an animal t
 
 let wordImagesArray = [
   {
-    src: 'imgs/firefighter.png',
+    src: 'imgs/firefighter_adobe_express.svg',
     answerImg: 'imgs/andrew-gaines-s76S64umXpo-unsplash.jpg',
     answer: 'firefighter'
   },
@@ -105,7 +105,7 @@ let top5Array = [
     ]
   },
   {
-    theme: 'Top 5 Snacks',
+    theme: 'Top 5 Snacks & Sweets',
     array: [
       'cookies',
       'nuts',
