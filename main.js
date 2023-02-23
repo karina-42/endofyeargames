@@ -1,4 +1,5 @@
 import { newWordsArray, nazoArray, dontMatchArray, wordImagesArray, top5Array } from "./data.js"
+
 //get buttons from HTML
 const newWordsBtn = document.getElementById('newWords')
 const nazoBtn = document.getElementById('nazo')
@@ -39,63 +40,6 @@ let wordPlusWordBtnTimesClicked = 0
 let top5BtnTimesClicked = 0
 
 //functions to show the games on click of their buttons
-//make new words game
-function showNewWords() {
-  newWordsBtnTimesClicked += 1
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  points.textContent = 'Get these points x each word!'
-  pointsBtn.style.display = 'inline-block'
-  newWordsSpan.textContent = newWordsBtnTimesClicked 
-
-  title.textContent = 'Make New Words'
-  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1] 
-  if (newWordsBtnTimesClicked === 5) {
-    newWordsBtn.disabled = true
-  }
-}
-
-//nazo nazo riddle game
-function showNazo() {
-  nazoBtnTimesClicked += 1
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  points.textContent = 'Get these points!'
-  pointsBtn.style.display = 'inline-block'
-  nazonazoSpan.textContent = nazoBtnTimesClicked
-
-  title.textContent = "Nazo Nazo"
-  problem.textContent = nazoArray[nazoBtnTimesClicked - 1].nazo
-
-  let ansBtn = document.createElement('button')
-  ansBtn.className = 'ansBtn'
-  ansBtn.innerText = "Answer"
-  problem.after(ansBtn)
-  ansBtn.onclick = function() {
-    let answer = document.createElement('p')
-    answer.className = 'newWordAnswer'
-    answer.textContent = nazoArray[nazoBtnTimesClicked - 1].answer
-    ansBtn.before(answer)
-    ansBtn.remove()
-  }
-
-  nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
-}
-
 //don't match your answers game
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
@@ -107,6 +51,9 @@ function showDontMatch() {
   }
   if (document.querySelector('.newWordAnswer')) {
     document.querySelector('.newWordAnswer').remove()
+  }
+  if (document.querySelector('.ansBtn')) {
+    document.querySelector('.ansBtn').remove()
   }
   points.textContent = 'Get these points! (half if you matched 🙀)'
   pointsBtn.style.display = 'inline-block'
@@ -127,6 +74,9 @@ function showWordPlusWord() {
   }
   if (document.querySelector('.newWordAnswer')) {
     document.querySelector('.newWordAnswer').remove()
+  }
+  if (document.querySelector('.ansBtn')) {
+    document.querySelector('.ansBtn').remove()
   }
 
   points.textContent = 'Get these points!'
@@ -155,6 +105,7 @@ function showWordPlusWord() {
     answer.textContent = wordImagesArray[wordPlusWordBtnTimesClicked - 1].answer
     ansBtn.before(answer)
     let ansImg = document.createElement('img')
+    ansImg.className = 'ansImg'
     ansImg.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].answerImg
     answer.after(ansImg)
     // ansBtn.style.visibility = 'hidden'
@@ -176,6 +127,9 @@ function showTop5() {
   }
   if (document.querySelector('.newWordAnswer')) {
     document.querySelector('.newWordAnswer').remove()
+  }
+  if (document.querySelector('.ansBtn')) {
+    document.querySelector('.ansBtn').remove()
   }
   points.textContent = ''
 
@@ -226,4 +180,67 @@ function showTop5() {
     position5.style.backgroundColor = '#07703D'
   }
   top5BtnTimesClicked === 5 ? top5Btn.disabled = true : top5BtnTimesClicked
+}
+
+//nazo nazo riddle game
+function showNazo() {
+  nazoBtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').remove()
+  }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
+  }
+  if (document.querySelector('.ansBtn')) {
+    document.querySelector('.ansBtn').remove()
+  }
+  points.textContent = 'Get these points!'
+  pointsBtn.style.display = 'inline-block'
+  nazonazoSpan.textContent = nazoBtnTimesClicked
+
+  title.textContent = "Nazo Nazo"
+  problem.textContent = nazoArray[nazoBtnTimesClicked - 1].nazo
+
+  let ansBtn = document.createElement('button')
+  ansBtn.className = 'ansBtn'
+  ansBtn.innerText = "Answer"
+  problem.after(ansBtn)
+  ansBtn.onclick = function() {
+    let answer = document.createElement('p')
+    answer.className = 'newWordAnswer'
+    answer.textContent = nazoArray[nazoBtnTimesClicked - 1].answer
+    ansBtn.before(answer)
+    ansBtn.remove()
+  }
+
+  nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
+}
+
+//make new words game
+function showNewWords() {
+  newWordsBtnTimesClicked += 1
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').remove()
+  }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
+  }
+  if (document.querySelector('.ansBtn')) {
+    document.querySelector('.ansBtn').remove()
+  }
+  points.textContent = 'Get these points x each word!'
+  pointsBtn.style.display = 'inline-block'
+  newWordsSpan.textContent = newWordsBtnTimesClicked 
+
+  title.textContent = 'Make New Words'
+  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1] 
+  if (newWordsBtnTimesClicked === 5) {
+    newWordsBtn.disabled = true
+  }
 }

@@ -27,27 +27,27 @@ let dontMatchArray = ['Who is an actor that is beautiful?', 'What is an animal t
 
 let wordImagesArray = [
   {
-    src: 'imgs/firefighter_adobe_express.svg',
+    src: 'imgs/firefighter.jpg',
     answerImg: 'imgs/andrew-gaines-s76S64umXpo-unsplash.jpg',
     answer: 'firefighter'
   },
   {
-    src: 'imgs/keyboard.png',
+    src: 'imgs/keyboard.jpg',
     answerImg: 'imgs/stefen-tan-KYw1eUx1J7Y-unsplash.jpg',
     answer: 'keyboard'
   },
   {
-    src: 'imgs/watermelon.png',
+    src: 'imgs/watermelon.jpg',
     answerImg: 'imgs/mockup-graphics-HuMXepbutF8-unsplash.jpg',
     answer: 'watermelon'
   },
   {
-    src: 'imgs/hamburger.png',
+    src: 'imgs/hamburger.jpg',
     answerImg: 'imgs/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg',
     answer: 'hamburger'
   },
   {
-    src: 'imgs/cupcake.png',
+    src: 'imgs/cupcake.jpg',
     answerImg: 'imgs/sara-cervera-zEwgRzJJIvk-unsplash.jpg',
     answer: 'cupcake'
   }
