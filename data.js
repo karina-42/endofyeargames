@@ -1,29 +1,5 @@
-let newWordsArray = ['supercalifragilisticexpialidocious', 'one hundred percent', 'exceptional students', 'impossible fiction', 'see you later']
-
-let nazoArray = [
-  {
-    nazo: 'How many letters are in the alphabet?',
-    answer: '11 - t h e a l p h a b e t'
-  },
-  {
-    nazo: 'What can you see once in a minute, twice in a moment and never in one thousand years?',
-    answer: 'The letter "m".'
-  },
-  {
-    nazo: 'A woman and 9 friends are under ONE umbrella. But nobody gets wet. Why?',
-    answer: 'Because it isn\’t raining.'
-  },
-  {
-    nazo: 'Which letter of the alphabet has the most water?',
-    answer: 'The letter "C" (sea).'
-  },
-  {
-    nazo: 'What thing do you need to break before you can use it?',
-    answer: 'An egg.'
-  }
-]
-
 let dontMatchArray = ['Who is an actor that is beautiful?', 'What is an animal that is cute?', 'Who is a singer that is cool?', 'What is an interesting movie to watch?', 'Who is a teacher that is funny?']
+
 
 let wordImagesArray = [
   {
@@ -105,5 +81,30 @@ let top5Array = [
     ]
   }
 ]
+
+let nazoArray = [
+  {
+    nazo: 'How many letters are in the alphabet?',
+    answer: '11 - t h e a l p h a b e t'
+  },
+  {
+    nazo: 'What can you see once in a minute, twice in a moment and never in one thousand years?',
+    answer: 'The letter "m".'
+  },
+  {
+    nazo: 'A woman and 9 friends are under ONE umbrella. But nobody gets wet. Why?',
+    answer: 'Because it isn\’t raining.'
+  },
+  {
+    nazo: 'Which letter of the alphabet has the most water?',
+    answer: 'The letter "C" (sea).'
+  },
+  {
+    nazo: 'What thing do you need to break before you can use it?',
+    answer: 'An egg.'
+  }
+]
+
+let newWordsArray = ['supercalifragilisticexpialidocious', 'one hundred percent', 'exceptional students', 'impossible fiction', 'see you later']
 
 export {newWordsArray, nazoArray, dontMatchArray, wordImagesArray, top5Array}

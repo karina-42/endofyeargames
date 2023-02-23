@@ -55,6 +55,9 @@ function showDontMatch() {
   if (document.querySelector('.ansBtn')) {
     document.querySelector('.ansBtn').remove()
   }
+  if (document.querySelector('.highlightOriginalWord')) {
+    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
+  }
   points.textContent = 'Get these points! (half if you matched 🙀)'
   pointsBtn.style.display = 'inline-block'
   dontMatchSpan.textContent = dontMatchBtnTimesClicked 
@@ -77,6 +80,9 @@ function showWordPlusWord() {
   }
   if (document.querySelector('.ansBtn')) {
     document.querySelector('.ansBtn').remove()
+  }
+  if (document.querySelector('.highlightOriginalWord')) {
+    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
   }
 
   points.textContent = 'Get these points!'
@@ -130,6 +136,9 @@ function showTop5() {
   }
   if (document.querySelector('.ansBtn')) {
     document.querySelector('.ansBtn').remove()
+  }
+  if (document.querySelector('.highlightOriginalWord')) {
+    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
   }
   points.textContent = ''
 
@@ -197,6 +206,9 @@ function showNazo() {
   if (document.querySelector('.ansBtn')) {
     document.querySelector('.ansBtn').remove()
   }
+  if (document.querySelector('.highlightOriginalWord')) {
+    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
+  }
   points.textContent = 'Get these points!'
   pointsBtn.style.display = 'inline-block'
   nazonazoSpan.textContent = nazoBtnTimesClicked
@@ -234,12 +246,15 @@ function showNewWords() {
   if (document.querySelector('.ansBtn')) {
     document.querySelector('.ansBtn').remove()
   }
+  
   points.textContent = 'Get these points x each word!'
   pointsBtn.style.display = 'inline-block'
   newWordsSpan.textContent = newWordsBtnTimesClicked 
 
   title.textContent = 'Make New Words'
-  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1] 
+  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1]
+  problem.className = 'highlightOriginalWord'
+
   if (newWordsBtnTimesClicked === 5) {
     newWordsBtn.disabled = true
   }
