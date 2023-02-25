@@ -29,6 +29,9 @@ const dontMatchSpan = document.getElementById('dontMatchSpan')
 //function to show points on click of points button
 function showPoints() {
   let randomPoints = Math.floor(Math.random() * 10 + 1) * 10 
+  if (points.classList.contains('strike')) {
+    points.classList.remove('strike')
+  }
   points.textContent = randomPoints
 }
 
@@ -43,21 +46,8 @@ let top5BtnTimesClicked = 0
 //don't match your answers game
 function showDontMatch() {
   dontMatchBtnTimesClicked += 1
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  if (document.querySelector('.ansBtn')) {
-    document.querySelector('.ansBtn').remove()
-  }
-  if (document.querySelector('.highlightOriginalWord')) {
-    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
-  }
+  clearScreen()
+ 
   points.textContent = 'Get these points! (half if you matched 🙀)'
   pointsBtn.style.display = 'inline-block'
   dontMatchSpan.textContent = dontMatchBtnTimesClicked 
@@ -69,21 +59,7 @@ function showDontMatch() {
 //word + word = word
 function showWordPlusWord() {
   wordPlusWordBtnTimesClicked += 1
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  if (document.querySelector('.ansBtn')) {
-    document.querySelector('.ansBtn').remove()
-  }
-  if (document.querySelector('.highlightOriginalWord')) {
-    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
-  }
+  clearScreen()
 
   points.textContent = 'Get these points!'
   
@@ -114,7 +90,7 @@ function showWordPlusWord() {
     ansImg.className = 'ansImg'
     ansImg.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].answerImg
     answer.after(ansImg)
-    // ansBtn.style.visibility = 'hidden'
+
     ansBtn.remove()
 
   }
@@ -125,21 +101,8 @@ function showWordPlusWord() {
 //top 5 game
 function showTop5() {
   top5BtnTimesClicked += 1
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  if (document.querySelector('.ansBtn')) {
-    document.querySelector('.ansBtn').remove()
-  }
-  if (document.querySelector('.highlightOriginalWord')) {
-    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
-  }
+  clearScreen()
+
   points.textContent = ''
 
   pointsBtn.style.display = 'none'
@@ -194,21 +157,8 @@ function showTop5() {
 //nazo nazo riddle game
 function showNazo() {
   nazoBtnTimesClicked += 1
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  if (document.querySelector('.ansBtn')) {
-    document.querySelector('.ansBtn').remove()
-  }
-  if (document.querySelector('.highlightOriginalWord')) {
-    document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
-  }
+  clearScreen()
+  
   points.textContent = 'Get these points!'
   pointsBtn.style.display = 'inline-block'
   nazonazoSpan.textContent = nazoBtnTimesClicked
@@ -233,7 +183,32 @@ function showNazo() {
 
 //make new words game
 function showNewWords() {
+
   newWordsBtnTimesClicked += 1
+  clearScreen()
+  
+  points.textContent = 'Get these points x each word!'
+  pointsBtn.style.display = 'inline-block'
+  newWordsSpan.textContent = newWordsBtnTimesClicked 
+
+  title.textContent = 'Make New Words'
+  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1]
+  problem.className = 'highlightOriginalWord'
+
+  setTimeout(() => {
+    title.className= 'strike'
+    points.className= 'strike'
+  }, 1500)
+
+
+
+  if (newWordsBtnTimesClicked === 5) {
+    newWordsBtn.disabled = true
+  }
+
+}
+
+function clearScreen() {
   if (document.getElementById('ol')) {
     document.getElementById('ol').remove()
   }
@@ -246,16 +221,10 @@ function showNewWords() {
   if (document.querySelector('.ansBtn')) {
     document.querySelector('.ansBtn').remove()
   }
-  
-  points.textContent = 'Get these points x each word!'
-  pointsBtn.style.display = 'inline-block'
-  newWordsSpan.textContent = newWordsBtnTimesClicked 
-
-  title.textContent = 'Make New Words'
-  problem.textContent = newWordsArray[newWordsBtnTimesClicked - 1]
-  problem.className = 'highlightOriginalWord'
-
-  if (newWordsBtnTimesClicked === 5) {
-    newWordsBtn.disabled = true
+  if (document.querySelector('.highlightOriginalWord')) {
+      document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
+    }
+  if(document.querySelector('.strike')) {
+      document.querySelectorAll('.strike').forEach((element) => element.classList.remove('strike'))
+    }
   }
-}

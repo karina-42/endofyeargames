@@ -139,6 +139,10 @@ span {
   line-height: 2em;
 }
 
+.strike {
+  text-decoration: line-through;
+}
+
 #position1 {
   background-color: #EBBEB7;
 }
