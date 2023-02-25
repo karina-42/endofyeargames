@@ -1,4 +1,5 @@
 import { newWordsArray, nazoArray, dontMatchArray, wordImagesArray, top5Array } from "./data.js"
+import { showPoints, clearScreen } from "./util.js"
 
 //get buttons from HTML
 const newWordsBtn = document.getElementById('newWords')
@@ -26,44 +27,15 @@ const top5Span = document.getElementById('top5Span')
 const wordPlusSpan = document.getElementById('wordPlusSpan')
 const dontMatchSpan = document.getElementById('dontMatchSpan')
 
-//function to show points on click of points button
-function showPoints() {
-  let randomPoints = Math.floor(Math.random() * 10 + 1) * 10 
-  if (points.classList.contains('strike')) {
-    points.classList.remove('strike')
-  }
-  points.textContent = randomPoints
-}
-
+//count finished games to show a message once they're all done
 let finishedGames = 0
 
 function goodbye() {
-   finishedGames += 1
-  if (finishedGames === 5) {
-  console.log('finished games!');
-  }
+  finishedGames += 1
+ if (finishedGames === 5) {
+ alert('finished games!');
+ }
 }
-
-function clearScreen() {
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  if (document.querySelector('.ansBtn')) {
-    document.querySelector('.ansBtn').remove()
-  }
-  if (document.querySelector('.highlightOriginalWord')) {
-      document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
-    }
-  if(document.querySelector('.strike')) {
-      document.querySelectorAll('.strike').forEach((element) => element.classList.remove('strike'))
-    }
-  }
 
 //initialize count of button presses
 let newWordsBtnTimesClicked = 0
