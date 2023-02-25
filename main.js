@@ -35,6 +35,36 @@ function showPoints() {
   points.textContent = randomPoints
 }
 
+let finishedGames = 0
+
+function goodbye() {
+   finishedGames += 1
+  if (finishedGames === 5) {
+  console.log('finished games!');
+  }
+}
+
+function clearScreen() {
+  if (document.getElementById('ol')) {
+    document.getElementById('ol').remove()
+  }
+  if (document.getElementById('wordPlusWordContent')) {
+    document.getElementById('wordPlusWordContent').remove()
+  }
+  if (document.querySelector('.newWordAnswer')) {
+    document.querySelector('.newWordAnswer').remove()
+  }
+  if (document.querySelector('.ansBtn')) {
+    document.querySelector('.ansBtn').remove()
+  }
+  if (document.querySelector('.highlightOriginalWord')) {
+      document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
+    }
+  if(document.querySelector('.strike')) {
+      document.querySelectorAll('.strike').forEach((element) => element.classList.remove('strike'))
+    }
+  }
+
 //initialize count of button presses
 let newWordsBtnTimesClicked = 0
 let nazoBtnTimesClicked = 0
@@ -53,7 +83,11 @@ function showDontMatch() {
   dontMatchSpan.textContent = dontMatchBtnTimesClicked 
   title.textContent = "Don't Match"
   problem.textContent = dontMatchArray[dontMatchBtnTimesClicked - 1]
-  dontMatchBtnTimesClicked === 5 ? dontMatchBtn.disabled = true : dontMatchBtnTimesClicked
+
+  if (dontMatchBtnTimesClicked === 5){
+    dontMatchBtn.disabled = true
+    goodbye()
+  }
 }
 
 //word + word = word
@@ -95,7 +129,10 @@ function showWordPlusWord() {
 
   }
 
-  wordPlusWordBtnTimesClicked === 5 ? wordPlusWordBtn.disabled = true : wordPlusWordBtnTimesClicked
+  if (wordPlusWordBtnTimesClicked === 5) {
+    wordPlusWordBtn.disabled = true
+    goodbye()
+  } 
 }
 
 //top 5 game
@@ -151,7 +188,11 @@ function showTop5() {
     position5.textContent = top5Array[top5BtnTimesClicked - 1].array[4]
     position5.style.backgroundColor = '#07703D'
   }
-  top5BtnTimesClicked === 5 ? top5Btn.disabled = true : top5BtnTimesClicked
+  
+  if (top5BtnTimesClicked === 5){
+    top5Btn.disabled = true
+    goodbye()
+  }
 }
 
 //nazo nazo riddle game
@@ -178,7 +219,10 @@ function showNazo() {
     ansBtn.remove()
   }
 
-  nazoBtnTimesClicked === 5 ? nazoBtn.disabled = true : nazoBtnTimesClicked
+  if (nazoBtnTimesClicked === 5) {
+    nazoBtn.disabled = true
+    goodbye()
+  }
 }
 
 //make new words game
@@ -204,27 +248,7 @@ function showNewWords() {
 
   if (newWordsBtnTimesClicked === 5) {
     newWordsBtn.disabled = true
+    goodbye()
   }
 
 }
-
-function clearScreen() {
-  if (document.getElementById('ol')) {
-    document.getElementById('ol').remove()
-  }
-  if (document.getElementById('wordPlusWordContent')) {
-    document.getElementById('wordPlusWordContent').remove()
-  }
-  if (document.querySelector('.newWordAnswer')) {
-    document.querySelector('.newWordAnswer').remove()
-  }
-  if (document.querySelector('.ansBtn')) {
-    document.querySelector('.ansBtn').remove()
-  }
-  if (document.querySelector('.highlightOriginalWord')) {
-      document.querySelector('.highlightOriginalWord').classList.remove('highlightOriginalWord')
-    }
-  if(document.querySelector('.strike')) {
-      document.querySelectorAll('.strike').forEach((element) => element.classList.remove('strike'))
-    }
-  }
