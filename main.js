@@ -33,8 +33,13 @@ let finishedGames = 0
 function goodbye() {
   finishedGames += 1
  if (finishedGames === 5) {
- alert('finished games!');
+//  alert('finished games!');
+ pointsBtn.addEventListener('click', later)
  }
+ function later() {
+  setTimeout(() => alert('thanks for all the fish'), 2000)
+ }
+//adding something to the points button that'll make something happen sometime (setInterval) after clicked, give them a chance to get their points
 }
 
 //initialize count of button presses
@@ -214,7 +219,7 @@ function showNewWords() {
   setTimeout(() => {
     title.className= 'strike'
     points.className= 'strike'
-  }, 1500)
+  }, 1000)
 
 
 

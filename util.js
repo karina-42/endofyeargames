@@ -1,5 +1,5 @@
 function showPoints() {
-  let randomPoints = Math.floor(Math.random() * 10 + 1) * 10 
+  let randomPoints = Math.floor(Math.random() * 10 + 1) * 5
   if (points.classList.contains('strike')) {
     points.classList.remove('strike')
   }
