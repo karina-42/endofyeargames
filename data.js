@@ -3,28 +3,28 @@ let dontMatchArray = ['Who is an actor that is beautiful?', 'What is an animal t
 
 let wordImagesArray = [
   {
-    src: 'imgs/firefighter.jpg',
-    answerImg: 'imgs/andrew-gaines-s76S64umXpo-unsplash.jpg',
+    src: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914683/lastGame/firefighter_clzu3x.jpg',
+    answerImg: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/andrew-gaines-s76S64umXpo-unsplash_mmkboj.jpg',
     answer: 'firefighter'
   },
   {
-    src: 'imgs/keyboard.jpg',
-    answerImg: 'imgs/stefen-tan-KYw1eUx1J7Y-unsplash.jpg',
+    src: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/keyboard_va9pwa.jpg',
+    answerImg: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/stefen-tan-KYw1eUx1J7Y-unsplash_xuprnm.jpg',
     answer: 'keyboard'
   },
   {
-    src: 'imgs/watermelon.jpg',
-    answerImg: 'imgs/mockup-graphics-HuMXepbutF8-unsplash.jpg',
+    src: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/watermelon_t3bzu0.jpg',
+    answerImg: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/mockup-graphics-HuMXepbutF8-unsplash_jpa808.jpg',
     answer: 'watermelon'
   },
   {
-    src: 'imgs/hamburger.jpg',
-    answerImg: 'imgs/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg',
+    src: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/hamburger_pxlhmc.jpg',
+    answerImg: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/amirali-mirhashemian-sc5sTPMrVfk-unsplash_azulsb.jpg',
     answer: 'hamburger'
   },
   {
-    src: 'imgs/cupcake.jpg',
-    answerImg: 'imgs/sara-cervera-zEwgRzJJIvk-unsplash.jpg',
+    src: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/cupcake_oh98z8.jpg',
+    answerImg: 'https://res.cloudinary.com/dslxa2yhi/image/upload/v1677914634/lastGame/sara-cervera-zEwgRzJJIvk-unsplash_rd1mvg.jpg',
     answer: 'cupcake'
   }
 ]
