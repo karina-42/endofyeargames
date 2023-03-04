@@ -171,3 +171,9 @@ span {
   border-radius: 20px;
   border: 2px solid gray;
 }
+
+a {
+  font-size: 2.5rem;
+  color: white;
+  display: block;
+}

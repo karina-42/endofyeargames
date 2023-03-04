@@ -87,6 +87,11 @@ function showWordPlusWord() {
   img.setAttribute('id', 'problemImg')
   img.src = wordImagesArray[wordPlusWordBtnTimesClicked - 1].src
   wordPlusWordContent.append(img)
+  let link = document.createElement('a')
+  link.textContent = 'Try clicking here if picture doesn\'t show'
+  link.href = wordImagesArray[wordPlusWordBtnTimesClicked - 1].src
+  link.target = '_blank'
+  img.after(link)
 
   let ansBtn = document.createElement('button')
   ansBtn.className = 'ansBtn'
