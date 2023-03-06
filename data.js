@@ -105,6 +105,6 @@ let nazoArray = [
   }
 ]
 
-let newWordsArray = ['supercalifragilisticexpialidocious', 'one hundred percent', 'exceptional students', 'impossible fiction', 'see you later']
+let newWordsArray = ['supercalifragilisticexpialidocious', 'one hundred percent', 'chrysanthemum', 'exceptional students', 'impossible fiction']
 
 export {newWordsArray, nazoArray, dontMatchArray, wordImagesArray, top5Array}
