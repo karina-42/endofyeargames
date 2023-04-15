@@ -126,7 +126,7 @@ function showTop5() {
 
   pointsBtn.style.display = 'none'
   top5Span.textContent = top5BtnTimesClicked
-  title.textContent = 'Angie\'s Top 5s'
+  title.textContent = 'Karina\'s Top 5s'
   problem.textContent = top5Array[top5BtnTimesClicked - 1].theme
 
   let ol = document.createElement('ol')
